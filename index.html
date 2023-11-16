@@ -104,9 +104,7 @@
         }
 
         #mendable-component {
-            margin-left: auto; /* This will push it to the right */
-            display: flex;
-            align-items: center;
+            margin-left: 10px; /* Adjust the margin as needed */
         }
     </style>
 </head>
@@ -120,13 +118,14 @@
             <a href="#">Services</a>
             <a href="#">Contact</a>
         </nav>
-        <div id="mendable-component" class="toggle-container">
+        <div class="toggle-container">
             <span class="toggle-icon">🌙</span>
             <label class="switch">
                 <input type="checkbox" class="toggle-checkbox" id="darkModeToggle">
                 <span class="slider"></span>
             </label>
         </div>
+        <div id="mendable-component"></div>
     </header>
 
     <div class="container">
