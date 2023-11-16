@@ -29,8 +29,8 @@
         }
 
         header img {
-            width: 160px;
-            height: 160px;
+            width: 90px;
+            height: 90px;
         }
 
         nav {
@@ -102,6 +102,10 @@
         .toggle-checkbox:checked:before {
             left: 20px;
         }
+
+        #mendable-component {
+            margin-left: 10px; /* Adjust the margin as needed */
+        }
     </style>
 </head>
 
@@ -121,12 +125,24 @@
                 <span class="slider"></span>
             </label>
         </div>
+        <div id="mendable-component"></div>
     </header>
 
     <div class="container">
         <h1>Welcome to Your Website</h1>
         <p>This is a simple landing page with a black background. Customize it to suit your needs.</p>
     </div>
+
+    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+    <script>
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "searchBar",
+            elementId: "mendable-component",
+            placeholder: "Ask Optimus",
+            dialogPlaceholder: "Ask me anything"
+        });
+    </script>
 
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
