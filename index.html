@@ -7,18 +7,25 @@
     <title>Your Landing Page</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #000;
+            color: #fff;
         }
 
         header {
             background-color: #333;
-            padding: 10px 0;
+            padding: 10px 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header img {
@@ -54,6 +61,46 @@
             font-size: 1.2em;
             margin-bottom: 40px;
         }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-label {
+            margin-right: 10px;
+        }
+
+        .toggle-checkbox {
+            appearance: none;
+            width: 40px;
+            height: 20px;
+            background: #777;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .toggle-checkbox:before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            top: 1px;
+            left: 1px;
+            transition: 0.3s;
+        }
+
+        .toggle-checkbox:checked {
+            background: #4CAF50;
+        }
+
+        .toggle-checkbox:checked:before {
+            left: 20px;
+        }
     </style>
 </head>
 
@@ -66,26 +113,28 @@
             <a href="#">Services</a>
             <a href="#">Contact</a>
         </nav>
+        <div class="toggle-container">
+            <span class="toggle-label">Dark Mode</span>
+            <label class="switch">
+                <input type="checkbox" class="toggle-checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
     </header>
 
     <div class="container">
         <h1>Welcome to Your Website</h1>
         <p>This is a simple landing page with a black background. Customize it to suit your needs.</p>
     </div>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode', darkModeToggle.checked);
+        });
+    </script>
 </body>
 
 </html>
-
-<div id="mendable-component"></div>
-
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-    type:"searchBar",
-    elementId: "mendable-component", // required
-    placeholder: "Search", // add this line
-    dialogPlaceholder: "Ask me anything" // add this line
-    // all the other props for the component type
-});
-</script>
