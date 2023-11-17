@@ -13,7 +13,7 @@
             transition: background-color 0.5s;
         }
 
-        header {
+        header, footer {
             background-color: #333;
             color: white;
             text-align: center;
@@ -29,16 +29,6 @@
             text-align: justify;
             margin: 20px;
             color: #555;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
 
         /* Add a dark mode toggle switch */
@@ -125,13 +115,15 @@
 
     <!-- JavaScript for Dark Mode Toggle -->
     <script>
-        function toggleDarkMode() {
-            let body = document.body;
-            body.classList.toggle("dark-mode", darkMode.checked);
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const darkModeToggle = document.getElementById("dark-mode");
 
-        let darkMode = document.getElementById("dark-mode");
-        darkMode.addEventListener("change", toggleDarkMode);
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode", darkModeToggle.checked);
+            }
+
+            darkModeToggle.addEventListener("change", toggleDarkMode);
+        });
     </script>
 </body>
 </html>
