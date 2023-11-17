@@ -23,7 +23,7 @@
             padding: 10px;
             text-align: center;
             display: flex;
-            flex-direction: column; /* Adjusted for mobile */
+            justify-content: space-between; /* Adjusted to space between elements */
             align-items: center;
         }
 
@@ -47,8 +47,6 @@
         .toggle-container {
             display: flex;
             align-items: center;
-            justify-content: center; /* Center toggle on mobile */
-            margin-top: 20px; /* Adjusted for mobile */
             cursor: pointer;
         }
 
@@ -63,11 +61,20 @@
         /* Add media query for mobile responsiveness */
         @media screen and (max-width: 600px) {
             header {
+                flex-direction: column; /* Adjusted for mobile */
                 padding: 10px;
             }
 
             .container {
                 padding: 40px 10px; /* Adjusted for smaller screens */
+            }
+
+            #mendable-component {
+                order: 2; /* Adjusted to place Mendable search after moon icon on mobile */
+            }
+
+            .toggle-container {
+                margin-top: 20px; /* Adjusted for mobile */
             }
         }
     </style>
