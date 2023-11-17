@@ -49,17 +49,11 @@
             align-items: center;
             justify-content: center; /* Center toggle on mobile */
             margin-top: 20px; /* Adjusted for mobile */
+            cursor: pointer;
         }
 
         .toggle-icon {
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-
-        .toggle-checkbox {
-            /* Adjusted width for mobile */
-            width: 60px;
-            height: 30px;
+            font-size: 2em;
         }
 
         #mendable-component {
@@ -81,12 +75,8 @@
 <body>
     <header>
         <div id="mendable-component"></div>
-        <div class="toggle-container">
-            <span class="toggle-icon">🌙</span>
-            <label class="switch">
-                <input type="checkbox" class="toggle-checkbox" id="darkModeToggle">
-                <span class="slider"></span>
-            </label>
+        <div class="toggle-container" id="darkModeToggle">
+            <span class="toggle-icon" onclick="toggleDarkMode()">🌙</span>
         </div>
     </header>
 
@@ -105,12 +95,10 @@
             dialogPlaceholder: "Ask me anything"
         });
 
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-
-        darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode', darkModeToggle.checked);
-        });
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
     </script>
 </body>
 </html>
