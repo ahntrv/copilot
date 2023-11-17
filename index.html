@@ -1,95 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Landing Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Include any additional CSS or Material Design components here -->
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            transition: background-color 0.3s;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google-themed Landing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        body.dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
+    .header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
 
-        header {
-            background-color: #4285f4;
-            color: #ffffff;
-            padding: 10px;
-            text-align: center;
-        }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #202124;
+    }
 
-        nav {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-        }
+    .content {
+      padding: 50px;
+      text-align: center;
+    }
 
-        main {
-            padding: 20px;
-        }
+    .content h2 {
+      font-size: 36px;
+      color: #202124;
+      margin-bottom: 20px;
+    }
 
-        footer {
-            background-color: #4285f4;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Dark mode toggle button styles */
-        #darkModeToggle {
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 20px;
-            color: #333;
-        }
-    </style>
+    .content p {
+      font-size: 18px;
+      color: #5f6368;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>Your Page Title</h1>
-    </header>
-
-    <nav>
-        <!-- Include navigation links or menu items here -->
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <main>
-        <!-- Your main content goes here -->
-        <p>Welcome to your landing page!</p>
-    </main>
-
-    <footer>
-        &copy; 2023 Your Company Name
-    </footer>
-
-    <!-- Dark mode toggle button -->
-    <div id="darkModeToggle" onclick="toggleDarkMode()">🌙</div>
-
-    <script>
-        // Dark mode toggle function
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-        }
-    </script>
-
+  <div class="header">
+    <h1>Google-themed Landing Page</h1>
+  </div>
+  <div class="content">
+    <h2>Welcome to our website!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  </div>
 </body>
 </html>
