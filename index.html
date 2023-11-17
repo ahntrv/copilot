@@ -2,120 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AI Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Landing Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Include any additional CSS or Material Design components here -->
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            transition: background-color 0.5s;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
         }
 
-        .container {
-            max-width: 90%;
-            margin: 100px auto;
+        header {
+            background-color: #4285f4;
+            color: #ffffff;
+            padding: 10px;
             text-align: center;
         }
 
-        h1 {
-            color: #333;
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
 
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #333;
-            color: #fff;
+        main {
+            padding: 20px;
         }
 
-        body.dark-mode h1 {
-            color: #fff; /* Adjust text color for dark mode */
-        }
-
-        /* Toggle styles */
-        .toggle-container {
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .toggle-label {
-            display: inline-block;
-            margin-right: 10px;
-            color: #333;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 20px;
-            background-color: #ddd;
-            border-radius: 15px;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 16px;
-            height: 16px;
-            background-color: #fff;
-            border-radius: 50%;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        input[type="checkbox"]:checked + .toggle-switch .toggle-slider {
-            transform: translateX(20px);
-        }
-
-        /* Adjustments for smaller screens */
-        @media only screen and (max-width: 600px) {
-            .container {
-                margin: 50px auto;
-            }
+        footer {
+            background-color: #4285f4;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>AI Landing Page</h1>
-    <p>Welcome to our AI-powered website!</p>
-    <div class="toggle-container">
-        <label for="darkModeToggle" class="toggle-label">Dark Mode:</label>
-        <div class="toggle-switch">
-            <div class="toggle-slider"></div>
-        </div>
-        <input type="checkbox" id="darkModeToggle">
-    </div>
-</div>
+    <header>
+        <h1>Your Page Title</h1>
+    </header>
 
-<script>
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+    <nav>
+        <!-- Include navigation links or menu items here -->
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
 
-    // Check local storage for user preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('dark-mode');
-        darkModeToggle.checked = true;
-    }
+    <main>
+        <!-- Your main content goes here -->
+        <p>Welcome to your landing page!</p>
+    </main>
 
-    // Toggle dark mode
-    darkModeToggle.addEventListener('change', () => {
-        body.classList.toggle('dark-mode');
-
-        // Save user preference to local storage
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', null);
-        }
-    });
-</script>
+    <footer>
+        &copy; 2023 Your Company Name
+    </footer>
 
 </body>
 </html>
