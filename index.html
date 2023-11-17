@@ -28,6 +28,50 @@
             color: #fff;
         }
 
+        body.dark-mode h1 {
+            color: #fff; /* Adjust text color for dark mode */
+        }
+
+        /* Toggle styles */
+        .toggle-container {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 15px;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .toggle-switch .toggle-slider {
+            transform: translateX(20px);
+        }
+
         /* Adjustments for smaller screens */
         @media only screen and (max-width: 600px) {
             .container {
@@ -41,8 +85,13 @@
 <div class="container">
     <h1>AI Landing Page</h1>
     <p>Welcome to our AI-powered website!</p>
-    <label for="darkModeToggle">Dark Mode:</label>
-    <input type="checkbox" id="darkModeToggle">
+    <div class="toggle-container">
+        <label for="darkModeToggle" class="toggle-label">Dark Mode:</label>
+        <div class="toggle-switch">
+            <div class="toggle-slider"></div>
+        </div>
+        <input type="checkbox" id="darkModeToggle">
+    </div>
 </div>
 
 <script>
