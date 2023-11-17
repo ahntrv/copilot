@@ -1,153 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Minimalist Website</title>
     <style>
-        /* Add your CSS code here */
         body {
-            font-family: Arial, sans-serif;
-            background-color: lightblue;
-            transition: 0.5s;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
         }
 
         h1 {
             text-align: center;
-            color: white;
+            color: #333;
         }
 
         p {
             text-align: justify;
             margin: 20px;
+            color: #555;
         }
 
-        /* Add a header element with a bold text logo */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: darkblue;
-            height: 80px;
-        }
-
-        header h2 {
-            font-weight: bold;
-            color: white;
-        }
-
-        /* Add a footer element with some text */
         footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: darkblue;
-            height: 40px;
-        }
-
-        footer p {
+            background-color: #333;
             color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         /* Add a dark mode toggle switch */
         .switch {
-            position: absolute;
+            position: fixed;
             top: 10px;
             right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider {
+            position: relative;
+            display: inline-block;
             width: 60px;
             height: 34px;
         }
 
-        .switch input {
+        .slider input {
             opacity: 0;
             width: 0;
             height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: grey;
-            transition: 0.4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: 0.4s;
-        }
-
-        input:checked + .slider {
-            background-color: yellow;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
         }
 
         .slider.round {
             border-radius: 34px;
         }
 
+        .slider:before {
+            content: "";
+            position: absolute;
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
         .slider.round:before {
             border-radius: 50%;
         }
 
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
         /* Add a CSS class for dark mode */
-        .dark-mode {
-            background-color: black;
+        .dark-mode body {
+            background-color: #333;
+            color: white;
+            transition: background-color 0.5s;
+        }
+
+        .dark-mode h1, .dark-mode p {
             color: white;
         }
     </style>
 </head>
 <body>
-    <!-- Add a header element with a bold text logo -->
-    <header>
-        <h2>My Website</h2>
-    </header>
-    <h1>Welcome to my website!</h1>
-    <p>This is a simple website that I created using HTML, CSS, and JavaScript. You can edit this code and customize it to your liking. You can also add more elements and features to make your website more interactive and dynamic.</p>
     <!-- Add a dark mode toggle switch -->
-    <label class="switch">
-        <input type="checkbox" id="dark-mode">
-        <span class="slider round"></span>
-    </label>
-    <script>
-        // Add your JavaScript code here
-        alert("Hello, world!");
+    <div class="switch">
+        <label class="slider round">
+            <input type="checkbox" id="dark-mode">
+            <span class="slider round"></span>
+        </label>
+    </div>
 
-        // Add a function to toggle dark mode
-        function toggleDarkMode() {
-            let body = document.body;
-            let header = document.querySelector("header");
-            let footer = document.querySelector("footer");
-            let h1 = document.querySelector("h1");
-            let h2 = document.querySelector("h2");
-            let p = document.querySelectorAll("p");
-            body.classList.toggle("dark-mode");
-            header.classList.toggle("dark-mode");
-            footer.classList.toggle("dark-mode");
-            h1.classList.toggle("dark-mode");
-            h2.classList.toggle("dark-mode");
-            for (let i = 0; i < p.length; i++) {
-                p[i].classList.toggle("dark-mode");
-            }
-        }
+    <!-- Header -->
+    <header>
+        <h1>My Minimalist Website</h1>
+    </header>
 
-        // Add an event listener to the dark mode toggle switch
-        let darkMode = document.getElementById("dark-mode");
-        darkMode.addEventListener("change", toggleDarkMode);
-    </script>
-    <!-- Add a footer element with some text -->
+    <!-- Content -->
+    <h1>Welcome to my website!</h1>
+    <p>This is a simple and minimalist website created using HTML, CSS, and JavaScript. Customize it to your liking and make it your own.</p>
+
+    <!-- Footer -->
     <footer>
         <p>Created by me using Bing</p>
     </footer>
+
+    <!-- JavaScript for Dark Mode Toggle -->
+    <script>
+        function toggleDarkMode() {
+            let body = document.body;
+            body.classList.toggle("dark-mode", darkMode.checked);
+        }
+
+        let darkMode = document.getElementById("dark-mode");
+        darkMode.addEventListener("change", toggleDarkMode);
+    </script>
 </body>
 </html>
