@@ -7,6 +7,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: lightblue;
+            transition: 0.5s;
         }
 
         h1 {
@@ -18,14 +19,135 @@
             text-align: justify;
             margin: 20px;
         }
+
+        /* Add a header element with a bold text logo */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: darkblue;
+            height: 80px;
+        }
+
+        header h2 {
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Add a footer element with some text */
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: darkblue;
+            height: 40px;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        /* Add a dark mode toggle switch */
+        .switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: grey;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: yellow;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
+    <!-- Add a header element with a bold text logo -->
+    <header>
+        <h2>My Website</h2>
+    </header>
     <h1>Welcome to my website!</h1>
     <p>This is a simple website that I created using HTML, CSS, and JavaScript. You can edit this code and customize it to your liking. You can also add more elements and features to make your website more interactive and dynamic.</p>
+    <!-- Add a dark mode toggle switch -->
+    <label class="switch">
+        <input type="checkbox" id="dark-mode">
+        <span class="slider round"></span>
+    </label>
     <script>
         // Add your JavaScript code here
         alert("Hello, world!");
+
+        // Add a function to toggle dark mode
+        function toggleDarkMode() {
+            let body = document.body;
+            let header = document.querySelector("header");
+            let footer = document.querySelector("footer");
+            let h1 = document.querySelector("h1");
+            let h2 = document.querySelector("h2");
+            let p = document.querySelectorAll("p");
+            body.classList.toggle("dark-mode");
+            header.classList.toggle("dark-mode");
+            footer.classList.toggle("dark-mode");
+            h1.classList.toggle("dark-mode");
+            h2.classList.toggle("dark-mode");
+            for (let i = 0; i < p.length; i++) {
+                p[i].classList.toggle("dark-mode");
+            }
+        }
+
+        // Add an event listener to the dark mode toggle switch
+        let darkMode = document.getElementById("dark-mode");
+        darkMode.addEventListener("change", toggleDarkMode);
+
+        // Add a CSS class for dark mode
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
     </script>
+    <!-- Add a footer element with some text -->
+    <footer>
+        <p>Created by me using Bing</p>
+    </footer>
 </body>
 </html>
