@@ -5,4 +5,4 @@ function toggleDarkMode() {
 
     const toggleIcon = document.getElementById('toggle-icon');
     toggleIcon.textContent = currentTheme === 'dark-theme' ? '☀️' : '🌙';
-}
+} 
