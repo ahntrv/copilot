@@ -2,111 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Landing Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            background-color: #000;
-            color: #fff;
-        }
-
-        header {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between; /* Adjusted to space between elements */
-            align-items: center;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 90%;
+            margin: 100px auto;
             text-align: center;
-            padding: 40px 20px; /* Adjusted for mobile */
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #333;
         }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px; /* Adjusted for mobile */
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
         }
 
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .toggle-icon {
-            font-size: 2em;
-        }
-
-        #mendable-component {
-            margin: 20px auto; /* Adjusted for mobile */
-        }
-
-        /* Add media query for mobile responsiveness */
-        @media screen and (max-width: 600px) {
-            header {
-                flex-direction: column; /* Adjusted for mobile */
-                padding: 10px;
-            }
-
+        /* Adjustments for smaller screens */
+        @media only screen and (max-width: 600px) {
             .container {
-                padding: 40px 10px; /* Adjusted for smaller screens */
-            }
-
-            #mendable-component {
-                margin: 20px 0; /* Adjusted for mobile */
-                order: 2; /* Adjusted to place Mendable search after moon icon on mobile */
-            }
-
-            .toggle-container {
-                margin-top: 20px; /* Adjusted for mobile */
+                margin: 50px auto;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div id="mendable-component"></div>
-        <div class="toggle-container" id="darkModeToggle">
-            <span class="toggle-icon" onclick="toggleDarkMode()">🌙</span>
-        </div>
-    </header>
 
-    <div class="container">
-        <h1>Welcome to Your Website</h1>
-        <p>This is a simple landing page with a black background. Customize it to suit your needs.</p>
-    </div>
+<div class="container">
+    <h1>AI Landing Page</h1>
+    <p>Welcome to our AI-powered website!</p>
+    <label for="darkModeToggle">Dark Mode:</label>
+    <input type="checkbox" id="darkModeToggle">
+</div>
 
-    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-    <script>
-        Mendable.initialize({
-            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-            type: "searchBar",
-            elementId: "mendable-component",
-            placeholder: "Ask Optimus",
-            dialogPlaceholder: "Ask me anything"
-        });
+<script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
+    // Check local storage for user preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+
+        // Save user preference to local storage
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', null);
         }
-    </script>
+    });
+</script>
+
 </body>
 </html>
