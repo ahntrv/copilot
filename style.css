@@ -6,6 +6,20 @@ body {
     color: #333;
 }
 
+header {
+    background-color: #008080;
+    padding: 20px 0;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h1 {
+    color: #fff;
+    margin: 0;
+}
+
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -19,4 +33,11 @@ h1 {
 p {
     font-size: 18px;
     line-height: 1.6;
+}
+
+footer {
+    background-color: #008080;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
