@@ -20,39 +20,35 @@
 
         header {
             background-color: #333;
-            padding: 10px 20px;
+            padding: 10px;
             text-align: center;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Adjusted for mobile */
             align-items: center;
-        }
-
-        header img {
-            width: 30px;
-            height: 40px;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            padding: 80px 20px;
+            padding: 40px 20px; /* Adjusted for mobile */
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 1.2em;
-            margin-bottom: 40px;
+            margin-bottom: 30px; /* Adjusted for mobile */
         }
 
         .toggle-container {
             display: flex;
             align-items: center;
-            margin-left: auto; /* Move to the right */
+            justify-content: center; /* Center toggle on mobile */
+            margin-top: 20px; /* Adjusted for mobile */
         }
 
         .toggle-icon {
@@ -61,44 +57,29 @@
         }
 
         .toggle-checkbox {
-            appearance: none;
-            width: 40px;
-            height: 20px;
-            background: #777;
-            border-radius: 10px;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .toggle-checkbox:before {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #fff;
-            top: 1px;
-            left: 1px;
-            transition: 0.3s;
-        }
-
-        .toggle-checkbox:checked {
-            background: #4CAF50;
-        }
-
-        .toggle-checkbox:checked:before {
-            left: calc(100% - 20px); /* Adjusted to fix the toggle appearance */
+            /* Adjusted width for mobile */
+            width: 60px;
+            height: 30px;
         }
 
         #mendable-component {
-            margin: 0 auto; /* Center the Mendable search bar */
+            margin: 20px auto; /* Adjusted for mobile */
+        }
+
+        /* Add media query for mobile responsiveness */
+        @media screen and (max-width: 600px) {
+            header {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 40px 10px; /* Adjusted for smaller screens */
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://cdn.freebiesupply.com/logos/large/2x/tesla-motors-logo-png-transparent.png" alt="Tesla">
         <div id="mendable-component"></div>
         <div class="toggle-container">
             <span class="toggle-icon">🌙</span>
