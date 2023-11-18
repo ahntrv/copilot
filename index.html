@@ -1,114 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>
-    /* Define the variables for light and dark mode colors */
-    :root {
-      --light-bg: #FFFFFF;
-      --light-text: #000000;
-      --dark-bg: #000000;
-      --dark-text: #FFFFFF;
-    }
-
-    /* Use a media query to detect the user's preferred color scheme */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        /* Swap the light and dark colors */
-        --light-bg: #000000;
-        --light-text: #FFFFFF;
-        --dark-bg: #FFFFFF;
-        --dark-text: #000000;
-      }
-    }
-
-    /* Apply the root variables to the body element */
-    body {
-      background-color: var(--light-bg);
-      color: var(--light-text);
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    /* Create a header element with a logo and a dark mode icon */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-    }
-
-    /* Center the logo image */
-    .logo {
-      display: block;
-      margin: 0 auto;
-      max-width: 200px;
-    }
-
-    /* Style the dark mode icon as a button */
-    .dark-mode-icon {
-      border: none;
-      background: none;
-      cursor: pointer;
-      outline: none;
-    }
-
-    /* Use an SVG image as the icon source */
-    .dark-mode-icon svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--light-text);
-    }
-
-    /* Create a main element with some content */
-    main {
-      padding: 20px;
-    }
-
-    /* Add some responsiveness for mobile devices */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-      }
-
-      .logo {
-        margin-bottom: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+            text-align: center;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .logo {
+            margin: 0 auto;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <!-- Add a header element with a logo and a dark mode icon -->
-  <header>
-    <!-- Use an image as the logo source -->
-    <img src="logo.png" alt="Logo" class="logo">
-    <!-- Add a button with an SVG image as the dark mode icon -->
-    <button class="dark-mode-icon" onclick="toggleDarkMode()">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2c1.85 0 3.6.537 5.131 1.464C15.318 5.894 14 8.85 14 12s1.318 6.106 3.131 8.536A9.983 9.983 0 0112 22zm7.824-2.265A7.97 7.97 0 0019.931 12c0-1.602-.374-3.109-1.024-4.463C16.706 9.55 16 11.15 16 12.819c0 2.614 1.664 4.819 3.824 5.916z"/>
-      </svg>
-    </button>
-  </header>
-  <!-- Add a main element with some content -->
-  <main>
-    <h1>Welcome to my website</h1>
-    <p>This is a simple landing website with a logo and a dark mode icon toggle. You can switch between light and dark mode by clicking on the icon on the top right corner of the header. The website is responsive and optimized for both desktop and mobile devices.</p>
-  </main>
-  <!-- Add a script element with a function to toggle dark mode -->
-  <script>
-    // Define a function to toggle dark mode
-    function toggleDarkMode() {
-      // Get the root element
-      var root = document.documentElement;
-      // Get the current values of the light and dark mode colors
-      var lightBg = root.style.getPropertyValue("--light-bg");
-      var lightText = root.style.getPropertyValue("--light-text");
-      var darkBg = root.style.getPropertyValue("--dark-bg");
-      var darkText = root.style.getPropertyValue("--dark-text");
-      // Swap the light and dark mode colors
-      root.style.setProperty("--light-bg", darkBg);
-      root.style.setProperty("--light-text", darkText);
-      root.style.setProperty("--dark-bg", lightBg);
-      root.style.setProperty("--dark-text", lightText);
-    }
-  </script>
+    <img class="logo" src="logo.png" alt="Logo">
+    <div class="dark-mode-toggle">Toggle Dark Mode</div>
+    <script>
+        const toggleButton = document.querySelector('.dark-mode-toggle');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
