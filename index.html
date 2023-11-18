@@ -12,8 +12,13 @@
             box-sizing: border-box;
             text-align: center;
             transition: background-color 0.3s, color 0.3s;
-            background-color: #333;
+            background-color: #000; /* Default dark mode background */
             color: #fff;
+        }
+
+        body.dark-mode {
+            background-color: #fff; /* White background for light mode */
+            color: #000;
         }
 
         header, footer {
