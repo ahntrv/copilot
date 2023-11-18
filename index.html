@@ -32,6 +32,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: transparent; /* Set background to transparent */
         }
 
         header.dark-mode, footer.dark-mode {
@@ -50,14 +51,15 @@
 
         h1 {
             margin: 10px auto 0;
+            color: #fff; /* Set heading color to white */
         }
 
         .tradingview-widget-container {
             margin: 0 auto;
             width: 100%; /* Set the width to 100% for desktop screens */
             max-width: 1200px; /* Set a max-width for larger screens if needed */
-            background-color: transparent; /* Set background to transparent */
-            color: #fff; /* Set font color to white */
+            background-color: transparent !important; /* Set background to transparent */
+            color: #fff !important; /* Set font color to white */
         }
 
         @media only screen and (max-width: 600px) {
@@ -116,7 +118,7 @@
                 "maLineColor": "#2962FF",
                 "maLineWidth": 1,
                 "maLength": 9,
-                "backgroundColor": "rgba(19, 23, 34, 0)",
+                "backgroundColor": "rgba(19, 23, 34, 0) !important", /* Set background to transparent */
                 "lineWidth": 2,
                 "lineType": 0,
                 "dateRanges": ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "ytd|1D"]
