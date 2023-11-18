@@ -54,9 +54,9 @@
 
         .tradingview-widget-container {
             margin: 0 auto;
-            width: 100%; /* Set the width to 100% */
-            max-width: 373px; /* Set the max width to 373 */
-            background-color: transparent; /* Set the background to transparent */
+            width: 100%; /* Set the width to 100% for desktop screens */
+            max-width: 1200px; /* Set a max-width for larger screens if needed */
+            background-color: transparent;
         }
 
         @media only screen and (max-width: 600px) {
@@ -94,7 +94,7 @@
                     ["NASDAQ:NVDA|1D"]
                 ],
                 "chartOnly": false,
-                "width": "100%",
+                "width": "100%", /* Set the width to 100% for desktop screens */
                 "height": "470",
                 "locale": "en",
                 "colorTheme": "dark",
