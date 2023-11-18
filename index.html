@@ -1,101 +1,86 @@
-<div>
-  <link href="./home.css" rel="stylesheet" />
-  <div class="home-container">
-    <div class="home-navbar">
-      <header data-thq="thq-navbar" class="home-navbar-interactive">
-        <div class="home-branding">
-          <span class="home-text">hola studio</span>
-        </div>
-        <div
-          data-thq="thq-navbar-nav"
-          data-role="Nav"
-          class="home-desktop-menu"
-        >
-          <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="home-nav">
-            <div class="home-right">
-              <div class="home-button">
-                <button class="home-work-with-us button">
-                  <span class="home-text1">work with us</span>
-                  <img alt="image" src="/hamburger.svg" class="home-image" />
-                </button>
-              </div>
-            </div>
-          </nav>
-        </div>
-        <div data-thq="thq-burger-menu" class="home-burger-menu">
-          <button class="home-work-with-us1 button">
-            <span class="home-text2">work with us</span>
-            <img alt="image" src="/hamburger.svg" class="home-image1" />
-          </button>
-        </div>
-        <div data-thq="thq-mobile-menu" class="home-mobile-menu">
-          <div data-thq="thq-mobile-menu-nav" data-role="Nav" class="home-nav1">
-            <div class="home-top">
-              <div class="home-branding1">
-                <span class="home-text3">hola studio</span>
-              </div>
-              <div data-thq="thq-close-menu" class="home-menu-close">
-                <svg viewBox="0 0 1024 1024" class="home-icon">
-                  <path
-                    d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <nav
-              data-thq="thq-mobile-menu-nav-links"
-              data-role="Nav"
-              class="home-middle"
-            >
-              <div class="home-links">
-                <span class="navLink">work</span>
-                <span class="navLink">services</span>
-                <span class="navLink">contact</span>
-              </div>
-              <button class="home-work-with-us2 button">
-                <span class="home-text4">work with us</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
-    </div>
-    <div class="home-hero">
-      <div class="home-header">
-        <h1 class="home-text5">
-          Creating visual identity that fits like a dream for conscious teams
-          with innovative products in web3 and SaaS
-        </h1>
-      </div>
-    </div>
-    <div class="home-who">
-      <div class="home-header1">
-        <div class="home-heading">
-          <h2 class="home-text6">We are a technology-driven design studio.</h2>
-          <span class="home-text7">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </span>
-        </div>
-        <button class="home-button1 button">let’s chat</button>
-      </div>
-    </div>
-    <div class="home-information">
-      <div class="home-purpose">
-        <span class="home-caption">What we do</span>
-        <span class="home-description">
-          We arrive at business-reflective design decisions by integrating
-          strategic thinking with mature design and transferrable functionality.
-          From helping transform the image of a legacy brand to creating an
-          ultra-modern identity for a space tech startup - we’re always up for a
-          fresh challenge.
-        </span>
-      </div>
-    </div>
-    <footer class="home-footer">
-      <div class="home-header2">
-        <span class="home-branding2">hola studio</span>
-      </div>
-    </footer>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Research</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Stock Research</h1>
+    </header>
+
+    <section>
+        <label for="stockSymbol">Enter Stock Symbol:</label>
+        <input type="text" id="stockSymbol" placeholder="e.g., AAPL">
+
+        <button onclick="searchStock()">Search</button>
+
+        <div id="stockInfo"></div>
+    </section>
+
+    <script>
+        function searchStock() {
+            const stockSymbol = document.getElementById('stockSymbol').value;
+            const stockInfoContainer = document.getElementById('stockInfo');
+
+            // You can replace this with actual API calls to fetch stock information
+            // For simplicity, displaying a sample message here
+            stockInfoContainer.innerHTML = `<p>Displaying information for ${stockSymbol}.</p>`;
+        }
+    </script>
+
+</body>
+</html>
