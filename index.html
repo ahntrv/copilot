@@ -53,7 +53,8 @@
         }
 
         .tradingview-widget-container {
-            margin-top: 0;
+            margin: 0 auto; /* Center the widget horizontally */
+            max-width: 600px; /* Adjust the maximum width if needed */
         }
 
         @media only screen and (max-width: 600px) {
@@ -87,7 +88,7 @@
                     ["NASDAQ:NVDA|1D"]
                 ],
                 "chartOnly": false,
-                "width": "373",
+                "width": "100%", /* Set the widget width to 100% */
                 "height": "470",
                 "locale": "en",
                 "colorTheme": "dark",
