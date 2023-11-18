@@ -67,7 +67,10 @@
         /* TradingView Widget Styles */
         .tradingview-widget-container {
             margin-top: 20px; /* Adjust margin for spacing */
-            width: 100%; /* Adjust width for responsiveness */
+            width: 100%; /* Adjusted width for responsiveness */
+            max-width: 600px; /* Set maximum width for larger screens */
+            margin-left: auto; /* Center widget on larger screens */
+            margin-right: auto;
         }
 
         @media only screen and (max-width: 600px) {
@@ -108,7 +111,7 @@
                 "height": 450,
                 "locale": "en",
                 "colorTheme": "dark",
-                "autosize": false,
+                "autosize": true, /* Enable autosize for responsiveness */
                 "showVolume": false,
                 "showMA": false,
                 "hideDateRanges": false,
@@ -163,4 +166,4 @@
     </script>
 
 </body>
-</html
+</html>
