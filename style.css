@@ -25,3 +25,16 @@ p {
     font-size: 24px;
     margin-top: 20px;
 }
+
+/* Mendable Search Widget Styles */
+#mendable-component {
+    max-width: 100%; /* Ensure the widget doesn't exceed the screen width */
+}
+
+/* Media query for smaller screens (adjust the breakpoint as needed) */
+@media (max-width: 768px) {
+    #mendable-component {
+        max-width: 80%; /* Adjust the width for smaller screens */
+        margin: 0 auto; /* Center the widget on smaller screens */
+    }
+}
