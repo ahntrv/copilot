@@ -11,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             text-align: center;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header, footer {
@@ -21,6 +22,60 @@
 
         main {
             padding: 20px;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .toggle-label {
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 20px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: '';
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: #fff;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .toggle-slider {
+            background-color: #2196F3;
+        }
+
+        input[type="checkbox"]:checked + .toggle-slider:before {
+            transform: translateX(20px);
         }
 
         @media only screen and (max-width: 600px) {
@@ -38,11 +93,28 @@
 
     <main>
         <p>We're working on something awesome! Stay tuned for updates.</p>
+
+        <div class="toggle-container">
+            <span class="toggle-label">Dark Mode</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
     </main>
 
     <footer>
         &copy; 2023 Your Company Name
     </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
 
 </body>
 </html>
