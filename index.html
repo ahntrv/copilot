@@ -58,6 +58,20 @@
             color: #000; /* Color for the light bulb in light mode */
         }
 
+        /* Mendable Widget Styles */
+        #mendable-component {
+            background-color: #333; /* Dark mode background color */
+            color: #fff; /* Dark mode text color */
+            border: 1px solid #fff; /* Dark mode border color */
+            padding: 10px;
+        }
+
+        #mendable-component.light-mode {
+            background-color: #fff; /* Light mode background color */
+            color: #000; /* Light mode text color */
+            border: 1px solid #000; /* Light mode border color */
+        }
+
         @media only screen and (max-width: 600px) {
             main {
                 padding: 10px;
@@ -101,6 +115,10 @@
         lightBulb.addEventListener('click', () => {
             body.classList.toggle('dark-mode', !body.classList.contains('dark-mode'));
             body.classList.toggle('light-mode', !body.classList.contains('light-mode'));
+
+            // Adapt Mendable Widget to Dark/Light mode
+            const mendableComponent = document.getElementById('mendable-component');
+            mendableComponent.classList.toggle('light-mode', body.classList.contains('light-mode'));
         });
     </script>
 
