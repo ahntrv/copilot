@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -47,50 +48,14 @@
             padding: 20px;
         }
 
-        .toggle-switch {
-            position: relative;
-            width: 40px;
-            height: 20px;
+        .light-bulb {
+            font-size: 24px;
+            color: #fff; /* Default bulb color */
+            transition: color 0.3s;
         }
 
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: 0.4s;
-            border-radius: 20px;
-        }
-
-        .toggle-slider:before {
-            position: absolute;
-            content: '';
-            height: 16px;
-            width: 16px;
-            left: 2px;
-            bottom: 2px;
-            background-color: #fff;
-            transition: 0.4s;
-            border-radius: 50%;
-        }
-
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        input[type="checkbox"]:checked + .toggle-slider {
-            background-color: #ccc;
-        }
-
-        input[type="checkbox"]:checked + .toggle-slider:before {
-            transform: translateX(20px);
-        }
-
-        input[type="checkbox"]:checked + .toggle-switch .toggle-slider {
-            background-color: #ccc;
+        .light-bulb.light-mode {
+            color: #fdd835; /* Color for lit bulb in light mode */
         }
 
         @media only screen and (max-width: 600px) {
@@ -104,10 +69,7 @@
 
     <header>
         <h1>Coming Soon</h1>
-        <label class="toggle-switch">
-            <input type="checkbox" id="darkModeToggle" checked>
-            <span class="toggle-slider"></span>
-        </label>
+        <i class="fas fa-lightbulb light-bulb" id="darkModeToggle"></i>
     </header>
 
     <main>
@@ -119,12 +81,12 @@
     </footer>
 
     <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
+        const lightBulb = document.getElementById('darkModeToggle');
         const body = document.body;
 
-        darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode', !darkModeToggle.checked);
-            body.classList.toggle('light-mode', darkModeToggle.checked);
+        lightBulb.addEventListener('click', () => {
+            body.classList.toggle('dark-mode', !body.classList.contains('dark-mode'));
+            body.classList.toggle('light-mode', !body.classList.contains('light-mode'));
         });
     </script>
 
