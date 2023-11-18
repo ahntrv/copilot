@@ -17,7 +17,12 @@
         }
 
         body.dark-mode {
-            background-color: #fff; /* White background for light mode */
+            background-color: #000;
+            color: #fff;
+        }
+
+        body.light-mode {
+            background-color: #fff;
             color: #000;
         }
 
@@ -94,9 +99,9 @@
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
 
-    <header class="dark-mode">
+    <header>
         <h1>Coming Soon</h1>
         <label class="toggle-switch">
             <input type="checkbox" id="darkModeToggle" checked>
@@ -108,21 +113,17 @@
         <p>We're working on something awesome! Stay tuned for updates.</p>
     </main>
 
-    <footer class="dark-mode">
+    <footer>
         &copy; 2023 Your Company Name
     </footer>
 
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
-        const header = document.querySelector('header');
-        const footer = document.querySelector('footer');
 
         darkModeToggle.addEventListener('change', () => {
-            const isDarkMode = !darkModeToggle.checked;
-            body.classList.toggle('dark-mode', isDarkMode);
-            header.classList.toggle('dark-mode', isDarkMode);
-            footer.classList.toggle('dark-mode', isDarkMode);
+            body.classList.toggle('dark-mode', !darkModeToggle.checked);
+            body.classList.toggle('light-mode', darkModeToggle.checked);
         });
     </script>
 
