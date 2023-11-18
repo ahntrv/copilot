@@ -22,24 +22,27 @@
         }
 
         header, footer {
-            background-color: #333;
-            color: #fff;
             padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header.dark-mode, footer.dark-mode {
+            background-color: #000;
+            color: #fff;
+        }
+
+        header.light-mode, footer.light-mode {
+            background-color: #fff;
+            color: #000;
         }
 
         main {
             padding: 20px;
         }
 
-        .toggle-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
         .toggle-switch {
             position: relative;
-            display: inline-block;
             width: 40px;
             height: 20px;
         }
@@ -93,31 +96,33 @@
 </head>
 <body>
 
-    <header>
+    <header class="dark-mode">
         <h1>Coming Soon</h1>
+        <label class="toggle-switch">
+            <input type="checkbox" id="darkModeToggle" checked>
+            <span class="toggle-slider"></span>
+        </label>
     </header>
 
     <main>
         <p>We're working on something awesome! Stay tuned for updates.</p>
-
-        <div class="toggle-container">
-            <label class="toggle-switch">
-                <input type="checkbox" id="darkModeToggle" checked>
-                <span class="toggle-slider"></span>
-            </label>
-        </div>
     </main>
 
-    <footer>
+    <footer class="dark-mode">
         &copy; 2023 Your Company Name
     </footer>
 
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
+        const header = document.querySelector('header');
+        const footer = document.querySelector('footer');
 
         darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode', !darkModeToggle.checked);
+            const isDarkMode = !darkModeToggle.checked;
+            body.classList.toggle('dark-mode', isDarkMode);
+            header.classList.toggle('dark-mode', isDarkMode);
+            footer.classList.toggle('dark-mode', isDarkMode);
         });
     </script>
 
