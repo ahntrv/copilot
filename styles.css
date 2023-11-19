@@ -1,0 +1,56 @@
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #000; /* Default dark mode background */
+    color: #fff;
+}
+
+body.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+header, footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.dark-mode, footer.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+header.light-mode, footer.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    margin: 10px auto 0;
+}
+
+.tradingview-widget-container {
+    margin: 0 auto; /* Center the widget horizontally */
+    max-width: 600px; /* Adjust the maximum width if needed */
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+}
