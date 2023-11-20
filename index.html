@@ -1,30 +1,8 @@
-<!-- index.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimus</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Link to the external JavaScript files -->
-    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-    <script src="mendable-script.js" defer></script>
-    <script src="script.js" defer></script> <!-- Assuming you have the TradingView script in script.js -->
-</head>
-<body>
-    <header>
-        <h1>Optimus</h1>
-        <!-- Mendable Widget Container -->
-        <div id="mendable-component" class="mendable-widget"></div>
-    </header>
-
-    <section>
-        <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-        </div>
-        <!-- TradingView Widget END -->
-    </section>
-</body>
-</html>
+<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+<script>
+Mendable.initialize({
+    anon_key: 'YOUR_ANON_KEY',
+    type:"floatingButton",
+    // all the other props for the component type
+});
+</script>
