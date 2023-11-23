@@ -7,19 +7,23 @@
     <title>Optimus</title>
     <style>
         body {
-            background-color: #1f1f1d; /* Set the background color to #1f1f1d */
-            color: #e8e8e6; /* Set the font color to #e8e8e6 */
-            text-align: center; /* Center align the content */
-            margin: 0; /* Remove default body margin */
-            padding: 0; /* Remove default body padding */
+            background-color: #1f1f1d;
+            color: #e8e8e6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Style the h1 (heading) */
         h1 {
-            color: #e8e8e6; /* Set the font color to #e8e8e6 */
+            color: #e8e8e6;
         }
 
-        /* Add any additional styles for your content */
+        /* Adjust the Mendable widget size and background color */
+        #mendable-component {
+            width: 200px;
+            height: 50px;
+            background-color: #292927; /* Set the background color to #292927 */
+        }
     </style>
 </head>
 <body>
@@ -36,7 +40,7 @@
     Mendable.initialize({
         anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
         type: "searchBar",
-        elementId: "mendable-component" // required
+        elementId: "mendable-component"
         // Add any other properties for the component type
     });
 </script>
