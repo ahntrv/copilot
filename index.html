@@ -61,28 +61,33 @@
     <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
 
     <!-- Embed the Mendable component -->
-<div id="mendable-component"></div>
+    <div id="mendable-component"></div>
 
-<!-- Include Mendable scripts -->
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+    <!-- Include Mendable scripts -->
+    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
 
-<script>
-    // Initialize Mendable component with custom styles
-    Mendable.initialize({
-        anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-        type: "searchBar",
-        elementId: "mendable-component",
-        placeholder: "Ask Copilot",
-        dialogPlaceholder: "Ask me anything",
-        // Add any other props for the component type
-        searchBarStyle: {
-            backgroundColor: "#1d1d1d",
-            borderColor: "#1d1d1d",
-            color: "#e8e8e6",
-            shadow: false,
-        },
-    });
-</script>
+    <script>
+        // Check if Mendable is defined
+        if (typeof Mendable !== 'undefined') {
+            // Initialize Mendable component with custom styles
+            Mendable.initialize({
+                anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+                type: "searchBar",
+                elementId: "mendable-component",
+                placeholder: "Ask Copilot",
+                dialogPlaceholder: "Ask me anything",
+                // Add any other props for the component type
+                searchBarStyle: {
+                    backgroundColor: "#1d1d1d",
+                    borderColor: "#1d1d1d",
+                    color: "#e8e8e6",
+                    shadow: false,
+                },
+            });
+        } else {
+            console.error('Mendable is not defined. Check if the Mendable script is properly loaded.');
+        }
+    </script>
 
 </main>
 
