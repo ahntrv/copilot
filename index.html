@@ -61,19 +61,27 @@
     <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
 
     <!-- Embed the Mendable component -->
-    <div id="mendable-component"></div>
+<div id="mendable-component"></div>
 
-    <!-- Include Mendable scripts -->
-    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-    <script>
-        Mendable.initialize({
-             anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-    type:"searchBar",
-    elementId: "mendable-component",
-    placeholder: "Ask Optimus",
-    dialogPlaceholder: "Ask me anything",
-    // all the other props for the component type
-});
+<!-- Include Mendable scripts -->
+<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+
+<script>
+    // Initialize Mendable component with custom styles
+    Mendable.initialize({
+        anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+        type: "searchBar",
+        elementId: "mendable-component",
+        placeholder: "Ask Copilot",
+        dialogPlaceholder: "Ask me anything",
+        // Add any other props for the component type
+        searchBarStyle: {
+            backgroundColor: "#1F2937",
+            borderColor: "#6B728033",
+            color: "#E1E3E7",
+            shadow: false,
+        },
+    });
 </script>
 
 </main>
