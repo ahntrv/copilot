@@ -10,12 +10,12 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1d1d1d; /* Updated background color */
+            background-color: #1d1d1d;
             color: #e8e8e6;
         }
 
-        header {
-            background-color: #1d1d1d; /* Updated background color */
+        header, main {
+            background-color: #1d1d1d;
             color: #e8e8e6;
             padding: 10px;
             text-align: center;
@@ -25,25 +25,14 @@
             max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            background-color: #1d1d1d; /* Updated background color */
             border-radius: 8px;
-            text-align: center;
         }
 
-        /* Style the Mendable component container */
-        #mendable-component {
-            margin-top: 20px; /* Adjusted margin for the image */
-            padding: 0; /* Remove padding to make it fit perfectly */
-            border: none; /* Remove border */
-            background-color: #1d1d1d; /* Updated background color */
-        }
-
-        /* Make the image responsive and round corners */
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; /* Adjusted border-radius to match the container */
-            margin-top: 20px; /* Adjusted margin to bring the image closer to headings */
+            border-radius: 8px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -62,31 +51,15 @@
 
     <!-- Embed the Mendable component -->
     <div id="mendable-component"></div>
-
-    <!-- Include Mendable scripts -->
+    
     <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-
     <script>
-        // Check if Mendable is defined
-        if (typeof Mendable !== 'undefined') {
-            // Initialize Mendable component with custom styles
-            Mendable.initialize({
-                anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-                type: "searchBar",
-                elementId: "mendable-component",
-                placeholder: "Ask Copilot",
-                dialogPlaceholder: "Ask me anything",
-                // Add any other props for the component type
-                searchBarStyle: {
-                    backgroundColor: "#1d1d1d",
-                    borderColor: "#1d1d1d",
-                    color: "#e8e8e6",
-                    shadow: false,
-                },
-            });
-        } else {
-            console.error('Mendable is not defined. Check if the Mendable script is properly loaded.');
-        }
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "searchBar",
+            elementId: "mendable-component"
+            // all the other props for the component type
+        });
     </script>
 
 </main>
