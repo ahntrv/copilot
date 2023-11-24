@@ -4,46 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimus</title>
+    <title>Copilot</title>
     <style>
         body {
-            background-color: #1f1f1d;
-            color: #e8e8e6;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        h1 {
+            background-color: #1f1f1d; /* Updated background color */
             color: #e8e8e6;
         }
 
-        /* Adjust the Mendable widget size and background color */
+        header, footer {
+            background-color: #1f1f1d; /* Updated background color */
+            color: #e8e8e6;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1f1f1d; /* Updated background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Style the Mendable component container */
         #mendable-component {
-            width: 200px;
-            height: 50px;
-            background-color: #292927; /* Set the background color to #292927 */
+            margin-top: 20px;
+            padding: 0; /* Remove padding to make it fit perfectly */
+            border: none; /* Remove border */
+            background-color: #1f1f1d; /* Updated background color */
         }
     </style>
 </head>
 <body>
 
-<!-- Your website content goes here -->
-<h1>Welcome to Optimus Website</h1>
+<!-- Header -->
+<header>
+    <h1>Welcome to Copilot</h1>
+</header>
 
-<div id="mendable-component"></div>
+<!-- Main content -->
+<main>
 
-<!-- Include the Mendable search script -->
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-    // Initialize Mendable search component
-    Mendable.initialize({
-        anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-        type: "searchBar",
-        elementId: "mendable-component"
-        // Add any other properties for the component type
-    });
-</script>
+    <!-- Embed the Mendable component -->
+    <div id="mendable-component"></div>
+
+    <!-- Include Mendable scripts -->
+    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+    <script>
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "searchBar",
+            elementId: "mendable-component" // required
+            // all the other props for the component type
+        });
+    </script>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    &copy; 2023 Copilot. All rights reserved.
+</footer>
 
 </body>
 </html>
