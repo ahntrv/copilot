@@ -5,77 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copilot</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1d1d1d;
-            color: #e8e8e6;
-        }
-
-        header {
-            background-color: #1d1d1d;
-            color: #e8e8e6;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-        }
-
-        main {
-            max-width: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
 </head>
 <body>
 
-<!-- Header Section -->
+<!-- Header -->
 <header>
     <h1>Copilot</h1>
 </header>
 
-<!-- Main Content Section -->
+<!-- Main content -->
 <main>
 
     <!-- Image above Mendable component -->
-    <div class="image-container">
-        <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI" />
-    </div>
+    <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
 
-    <!-- Mendable Component Section -->
+    <!-- Embed the Mendable component -->
     <div id="mendable-component"></div>
-    
-    <!-- Mendable Script -->
-    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js" rel="noopener noreferrer"></script>
+
+    <!-- Include Mendable scripts -->
+    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
     <script>
-        // Initialize Mendable Component
         Mendable.initialize({
             anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
             type: "searchBar",
-            elementId: "mendable-component",
-            dialogPlaceholder: "Ask me anything",
+            elementId: "mendable-component", // required
+            dialogPlaceholder: "Ask me anything"
             // all the other props for the component type
         });
     </script>
