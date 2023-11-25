@@ -7,21 +7,21 @@
     <title>Copilot</title>
     <link rel="shortcut icon" href="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png" type="image/x-icon">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        body, header, main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin: 0;
             padding: 0;
-            background-color: #1d1d1d;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #121212;
             color: #e8e8e6;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         header {
-            padding: 10px 0;
-            background-color: #1d1d1d;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 20px;
         }
 
         #header-logo {
@@ -29,34 +29,28 @@
         }
 
         main {
+            width: 100%;
             max-width: 960px;
-            margin: 20px auto;
             padding: 20px;
-            background-color: #1d1d1d;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
         img.content-image {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
             margin-top: 20px;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             main {
-                padding: 10px;
-            }
-
-            img.content-image {
-                margin-top: 10px;
+                padding: 15px;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 14px;
+            main {
+                padding: 10px;
             }
         }
     </style>
@@ -68,18 +62,25 @@
 </header>
 
 <main>
-    <img class="content-image" src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
+    <img class="content-image" src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI" loading="lazy">
     <div id="mendable-component"></div>
 </main>
 
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+<!-- Load Mendable script only if the component is present -->
 <script>
-    Mendable.initialize({
-        anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-        type: "searchBar",
-        elementId: "mendable-component",
-        dialogPlaceholder: "Ask me anything"
-    });
+    if (document.getElementById('mendable-component')) {
+        var script = document.createElement('script');
+        script.src = "https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js";
+        script.onload = function() {
+            Mendable.initialize({
+                anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+                type: "searchBar",
+                elementId: "mendable-component",
+                dialogPlaceholder: "Ask me anything"
+            });
+        };
+        document.head.appendChild(script);
+    }
 </script>
 
 </body>
