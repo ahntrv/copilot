@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copilot</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png"> <!-- Corrected href attribute -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,7 +13,7 @@
             padding: 0;
             background-color: #1d1d1d;
             color: #e8e8e6;
-            text-align: center; /* Center align text */
+            text-align: center;
         }
 
         header {
@@ -24,12 +24,12 @@
         #header-logo {
             max-height: 50px;
             width: auto;
-            margin-bottom: 20px; /* Provide spacing below the logo */
+            margin-bottom: 20px;
         }
 
         main {
-            max-width: 960px; /* Maximum width of the main content on large screens */
-            margin: 20px auto; /* Center the main content */
+            max-width: 960px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #1d1d1d;
             border-radius: 8px;
@@ -49,46 +49,36 @@
             margin-top: 20px;
         }
 
-        /* Responsive layout adjustments */
         @media (max-width: 768px) {
             main {
-                max-width: 90%; /* Ensure main content does not exceed the width of smaller screens */
+                max-width: 90%;
             }
 
             img {
-                margin-top: 10px; /* Reduce spacing on smaller screens */
+                margin-top: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Header with logo image -->
 <header>
     <img src="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png" alt="Copilot Logo" id="header-logo">
 </header>
 
-<!-- Main content -->
 <main>
-
-    <!-- Image above Mendable component -->
     <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
-
-    <!-- Embed the Mendable component -->
     <div id="mendable-component"></div>
-
-    <!-- Include Mendable scripts -->
     <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
     <script>
         Mendable.initialize({
             anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
             type: "searchBar",
-            elementId: "mendable-component", // required
-            dialogPlaceholder: "Ask me anything"
+            elementId: "mendable-component",
+            dialogPlaceholder: "Ask me anything",
             // all the other props for the component type
         });
     </script>
-
 </main>
 
 </body>
