@@ -14,30 +14,28 @@
             padding: 0;
             background-color: #1d1d1d;
             color: #e8e8e6;
+            text-align: center; /* Center align text */
         }
 
         header {
             background-color: #1d1d1d;
             padding: 10px;
-            text-align: center;
         }
 
-        /* Adjust the header logo styles to be 60px in height */
         #header-logo {
-            max-height: 60px; /* Logo height set to 60px */
-            width: auto; /* Maintain aspect ratio */
+            max-height: 60px;
+            width: auto;
+            margin-bottom: 20px; /* Provide spacing below the logo */
         }
 
         main {
-            max-width: 90%;
-            margin: 20px auto;
+            max-width: 960px; /* Maximum width of the main content on large screens */
+            margin: 20px auto; /* Center the main content */
             padding: 20px;
             background-color: #1d1d1d;
             border-radius: 8px;
-            text-align: center;
         }
 
-        /* Style the Mendable component container */
         #mendable-component {
             margin-top: 20px;
             padding: 0;
@@ -45,18 +43,28 @@
             background-color: #1d1d1d;
         }
 
-        /* Make the image responsive and round corners */
         img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin-top: 20px;
         }
+
+        /* Responsive layout adjustments */
+        @media (max-width: 768px) {
+            main {
+                max-width: 90%; /* Ensure main content does not exceed the width of smaller screens */
+            }
+
+            img {
+                margin-top: 10px; /* Reduce spacing on smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- Header with resized logo image -->
+<!-- Header with logo image -->
 <header>
     <img src="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png" alt="Copilot Logo" id="header-logo">
 </header>
