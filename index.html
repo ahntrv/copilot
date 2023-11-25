@@ -7,6 +7,7 @@
     <title>Copilot</title>
     <link rel="icon" type="image/x-icon" href="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png">
     <style>
+        /* Base styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -15,15 +16,16 @@
             color: #e8e8e6;
         }
 
+        /* Logo styles */
         .logo {
             display: block;
             margin: 0 auto;
             padding: 20px 0;
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
+            width: 90px; /* Adjusted for better visual size */
+            height: auto; /* Changed to auto to maintain aspect ratio */
         }
 
+        /* Main content styles */
         main {
             max-width: 90%;
             margin: 20px auto;
@@ -33,6 +35,7 @@
             text-align: center;
         }
 
+        /* Image container styles */
         .image-container {
             display: flex;
             justify-content: center;
@@ -40,10 +43,24 @@
             margin-top: 20px;
         }
 
+        /* Image styles */
         img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            main {
+                padding: 10px; /* Less padding on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 80px; /* Smaller logo on smaller screens */
+            }
         }
     </style>
 </head>
@@ -66,14 +83,14 @@
     <!-- Mendable Script -->
     <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js" defer crossorigin="anonymous"></script>
     <script>
-        // Initialize Mendable Component
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Mendable Component once the DOM is fully loaded
+        window.addEventListener('DOMContentLoaded', (event) => {
             Mendable.initialize({
                 anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
                 type: "searchBar",
                 elementId: "mendable-component",
-                dialogPlaceholder: "Ask me anything",
-                // all the other props for the component type
+                dialogPlaceholder: "Ask me anything"
+                // Add other properties as necessary
             });
         });
     </script>
