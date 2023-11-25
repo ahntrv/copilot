@@ -1,31 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copilot</title>
     <style>
         body {
-            background-color: black;
-            color: white;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            background-color: #1d1d1d; /* Updated background color */
+            color: #e8e8e6;
         }
+
         header {
+            background-color: #1d1d1d; /* Updated background color */
+            color: #e8e8e6;
+            padding: 10px;
             text-align: center;
-            padding: 20px;
         }
-        .logo {
-            max-width: 100px; /* Adjust as needed */
+
+        main {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1d1d1d; /* Updated background color */
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Style the Mendable component container */
+        #mendable-component {
+            margin-top: 20px; /* Adjusted margin for the image */
+            padding: 0; /* Remove padding to make it fit perfectly */
+            border: none; /* Remove border */
+            background-color: #1d1d1d; /* Updated background color */
+        }
+
+        /* Make the image responsive and round corners */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Adjusted border-radius to match the container */
+            margin-top: 20px; /* Adjusted margin to bring the image closer to headings */
         }
     </style>
 </head>
 <body>
-    <header>
-        <!-- Replace 'path_to_logo.png' with your actual logo path -->
-        <img src="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png" alt="Logo" class="logo"/>
-    </header>
-    <main>
-        <p>Hello World!</p>
-    </main>
+
+<!-- Header -->
+<header>
+    <h1>Copilot</h1>
+</header>
+
+<!-- Main content -->
+<main>
+
+    <!-- Image above Mendable component -->
+    <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
+
+    <!-- Embed the Mendable component -->
+    <div id="mendable-component"></div>
+
+    <!-- Include Mendable scripts -->
+    <script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+    <script>
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "searchBar",
+            elementId: "mendable-component" // required
+            // all the other props for the component type
+        });
+    </script>
+
+</main>
+
 </body>
 </html>
