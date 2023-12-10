@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website</title>
+  <title>My Minimal Website</title>  
   <style>
     body {
-      background-color: white;
-      color: black;
-      font-family: Arial;
+      background: #f1f1f1;
+      color: #0f0f0f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 960px;  
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 42px;  
+    }
+    
+    p {
+      line-height: 1.5;
+      font-size: 18px; 
+    }
+    
+    button {
+      padding: 10px 20px;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      border: none;
+      font-size: 18px;
     }
     
     .dark-mode {
-      background-color: black;
-      color: white;
+      background: #181818;
+      color: #f1f1f1;
+    }
+    
+    .dark-mode button {
+      background: #f1f1f1;
+      color: #0f0f0f;
     }
   </style>
 </head>
 
 <body>
 
-  <div>
-    <h1>Welcome to My Website</h1>
-    <p>This is an example one page website with a dark mode toggle.</p>
-    
-    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  </div>
-  
-  <script>
-    function toggleDarkMode() {
-      var body = document.body;
-      body.classList.toggle("dark-mode");
-    }
-  </script>
-  
-</body>
+<div class="container">
+  <h1>Minimal Website</h1>  
 
+  <p>This is an example minimalistic one page website with dark mode toggle.</p>
+
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</div>
+
+<script>
+  function toggleDarkMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+  } 
+</script>
+
+</body>
 </html>
