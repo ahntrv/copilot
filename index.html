@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>My Blog</h1>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-  </header>
-  <main>
-    <section id="timeline">
-      <h2>Timeline</h2>
-      <ul>
-        <li>
-          <h3>Post Title</h3>
-          <p>Post excerpt...</p>
-          <a href="#">Read More</a>
-        </li>
-        </ul>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+<div id="mendable-component"></div>
+
+<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+<script>
+Mendable.initialize({
+    anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+    type:"searchBar",
+    elementId: "mendable-component" // required
+    // all the other props for the component type
+});
+</script>
