@@ -1,16 +1,77 @@
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-  {
-  "feedMode": "all_symbols",
-  "colorTheme": "dark",
-  "isTransparent": true,
-  "displayMode": "regular",
-  "width": "100%",
-  "height": "100%",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1d1d1d;
+            color: #e8e8e6;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1d1d1d;
+            padding: 10px;
+        }
+
+        #header-logo {
+            max-height: 50px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1d1d1d;
+            border-radius: 8px;
+        }
+
+        #mendable-component {
+            margin-top: 20px;
+            padding: 0;
+            border: none;
+            background-color: #1d1d1d;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                max-width: 90%;
+            }
+
+            img {
+                margin-top: 10px;
+            }
+        }
+    </style>
+    <script type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+</head>
+<body>
+
+<header>
+    <img src="https://brandlogos.net/wp-content/uploads/2023/09/microsoft_copilot-logo_brandlogos.net_zaqzr.png" alt="Copilot Logo" id="header-logo">
+</header>
+
+<main>
+    <img src="https://i.pinimg.com/originals/47/26/5d/47265d2ba28c591bb6c352ff305d4933.gif" alt="Copilot AI">
+    <div id="mendable-component"></div>
+    <zapier-interfaces-page-embed page-id='clpg320i40004jo0oej3p33ph' no-background='true' allow-query-params='true' query-params='' style='max-width: 900px; height: 500px;'></zapier-interfaces-page-embed>
+</main>
+
+</body>
+</html>
