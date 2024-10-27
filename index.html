@@ -3,43 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <title>Olchaks</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Viewport Meta Tag for Responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Apple Touch Icon (Optional) -->
-    <link rel="apple-touch-icon" href="icon.png">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0;           /* Light text color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1f1f1f;
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        /* Toggle Switch Styles */
+        .switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .switch input { 
+            display: none;
+        }
+
+        .slider {
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .slider:before {
+            content: '';
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+
+        input:checked + .slider {
+            background-color: #555;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(25px);
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        article {
+            margin-bottom: 40px;
+        }
+
+        article h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        article .date {
+            color: #888888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        article p {
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1f1f1f;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            color: #888888;
+            margin: 0;
+        }
+
+        /* Link Styles */
+        a {
+            color: #bb86fc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            article h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Olchaks</h1>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        <h1>Welcome to Olchaks</h1>
+        <label class="switch">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+        </label>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#post1">First Post</a></li>
-            <li><a href="#post2">Second Post</a></li>
-            <li><a href="#post3">Third Post</a></li>
-        </ul>
-    </nav>
+
     <main>
-        <!-- Timeline Container -->
-        <div class="timeline">
-            <!-- Timeline Item -->
-            <div class="timeline-item" id="post1">
-                <div class="timeline-icon"></div>
-                <div class="timeline-content">
-                    <h2>First Blog Post</h2>
-                    <p>This is the content of the first blog post.</p>
-                </div>
-            </div>
-            <!-- Timeline Item -->
-            <div class="timeline-item" id="post2">
-                <div class="timeline-icon"></div>
-                <div class="timeline-content">
-                    <h2>Second Blog Post</h2>
-                    <p>This is the content of the second blog post.</p>
-                </div>
-            </div>
-            <!-- Timeline Item -->
-            <div class="timeline-item" id="post3">
-                <div cl
+        <!-- Blog Post 1 -->
+        <article>
+            <h2>First Blog Post</h2>
+            <p class="date">October 27, 2023</p>
+            <p>This is the content of your first blog post. Share something interesting!</p>
+        </article>
+
+        <!-- You can add more blog posts by copying the <article> section -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Olchaks</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.style.backgroundColor = '#ffffff';
+                body.style.color = '#000000';
+            } else {
+                body.style.backgroundColor = '#121212';
+                body.style.color = '#e0e0e0';
+            }
+        });
+    </script>
+</body>
+</html>
