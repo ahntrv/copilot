@@ -11,16 +11,17 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #E0E0E0;
+            background-color: #f2f2f2;
+            color: #333;
             transition: background-color 0.3s, color 0.3s;
         }
         header {
-            background: linear-gradient(135deg, #00FFA3, #00C6FF);
+            background: linear-gradient(135deg, #FF0000, #008000);
             color: #fff;
             padding: 40px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-in-out;
         }
         header h1 {
             font-family: 'Orbitron', sans-serif;
@@ -37,44 +38,50 @@
             padding: 15px;
             display: flex;
             justify-content: center;
-            background-color: #1E1E1E;
+            background-color: #004400;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            animation: slideDown 1s ease-in-out;
         }
         nav a {
-            color: #00C6FF;
+            color: #FFD700;
             text-decoration: none;
             font-weight: 600;
             margin: 0 20px;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #00FFA3;
+            color: #FF0000;
         }
         .content {
             padding: 50px 20px;
             max-width: 1000px;
             margin: auto;
             line-height: 1.8;
+            animation: fadeInUp 1.5s ease-in-out;
         }
         .content section {
             margin-bottom: 60px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.9);
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+        .content section:hover {
+            transform: translateY(-10px);
         }
         .content section h2 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 2em;
             margin-bottom: 20px;
-            color: #00C6FF;
+            color: #FF0000;
         }
         .content section p {
             font-size: 1.2em;
         }
         footer {
-            background: linear-gradient(135deg, #00C6FF, #00FFA3);
+            background: linear-gradient(135deg, #008000, #FF0000);
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -82,6 +89,7 @@
             bottom: 0;
             width: 100%;
             box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-in-out;
         }
         .dark-mode {
             background-color: #181818;
@@ -91,7 +99,7 @@
             background-color: #333;
         }
         nav a.dark-mode {
-            color: #00FFA3;
+            color: #FFD700;
         }
         header.dark-mode, footer.dark-mode {
             background: linear-gradient(135deg, #333, #444);
@@ -100,7 +108,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #00C6FF;
+            background-color: #FF0000;
             color: #fff;
             border: none;
             padding: 10px;
@@ -110,12 +118,25 @@
             transition: background-color 0.3s;
         }
         .dark-mode-toggle:hover {
-            background-color: #00FFA3;
+            background-color: #008000;
         }
         iframe {
             border: none;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 600px) {
             nav {
@@ -132,7 +153,7 @@
     <header>
         <h1>Copilot</h1>
         <p>Your source for the latest in AI research and development.</p>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🎄</button>
     </header>
     <nav>
         <a href="#latest-news">Latest News</a>
