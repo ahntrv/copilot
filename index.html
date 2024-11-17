@@ -6,37 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AI Chatbot Mobile Site</title>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style">
     <link rel="preload" href="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js" as="script">
     
-    <!-- Prevent FOUT (Flash of Unstyled Text) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     
-    <!-- Inline critical CSS for faster initial render -->
     <style>
-        /* Define CSS variables once in root */
         :root {
-            --background-color: #e0f7fa;
-            --text-color: #333;
+            /* Light theme colors */
+            --background-color: #f8fafc;
+            --text-color: #334155;
             --container-bg: #ffffff;
-            --header-shadow: rgba(0, 0, 0, 0.1);
-            --container-shadow: rgba(0, 0, 0, 0.1);
-            --transition-duration: 0.3s;
+            --header-bg: #ffffff;
+            --nav-text: #64748b;
+            --nav-text-hover: #334155;
+            --nav-bg-hover: #f1f5f9;
+            --active-nav: #3b82f6;
+            --button-bg: #3b82f6;
+            --button-hover: #2563eb;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --transition-duration: 0.2s;
         }
 
-        /* Separate dark mode variables */
         [data-theme="dark"] {
-            --background-color: #1a1a1a;
-            --text-color: #ffffff;
-            --container-bg: #2d2d2d;
-            --header-shadow: rgba(0, 0, 0, 0.3);
-            --container-shadow: rgba(0, 0, 0, 0.3);
+            --background-color: #0f172a;
+            --text-color: #e2e8f0;
+            --container-bg: #1e293b;
+            --header-bg: #1e293b;
+            --nav-text: #94a3b8;
+            --nav-text-hover: #f1f5f9;
+            --nav-bg-hover: #334155;
+            --active-nav: #60a5fa;
+            --button-bg: #3b82f6;
+            --button-hover: #60a5fa;
+            --border-color: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.2);
         }
 
-        /* Use GPU-accelerated properties for animations */
         body {
-            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--background-color);
@@ -46,76 +55,158 @@
         }
 
         header {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px var(--header-shadow);
-            position: relative;
-            z-index: 1;
-            will-change: transform;
+            background-color: var(--header-bg);
+            color: var(--text-color);
+            box-shadow: 0 1px 3px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
         }
 
         .theme-toggle {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             background: none;
             border: none;
-            color: white;
+            color: var(--nav-text);
             cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
+            transition: all var(--transition-duration) ease;
         }
 
-        .theme-toggle:focus-visible {
-            outline: 2px solid white;
-            outline-offset: 2px;
+        .theme-toggle:hover {
+            color: var(--nav-text-hover);
+            background-color: var(--nav-bg-hover);
         }
 
         .theme-toggle svg {
-            width: 24px;
-            height: 24px;
+            width: 1.25rem;
+            height: 1.25rem;
             fill: currentColor;
-            will-change: transform;
-            transition: transform var(--transition-duration) ease;
         }
 
-        .theme-toggle:active svg {
-            transform: scale(0.95);
+        nav {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-item {
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 0.75rem 0.5rem;
+            color: var(--nav-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-duration) ease;
+        }
+
+        .nav-link:hover {
+            color: var(--nav-text-hover);
+        }
+
+        .nav-link.active {
+            color: var(--active-nav);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--active-nav);
         }
 
         .chatbot-container {
-            padding: clamp(20px, 5vw, 40px);
-            max-width: 600px;
-            margin: clamp(20px, 5vw, 40px) auto;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
             background-color: var(--container-bg);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px var(--container-shadow);
-            transform: translateZ(0);
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px var(--shadow-color);
+        }
+
+        .chat-button {
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color var(--transition-duration) ease;
+        }
+
+        .chat-button:hover {
+            background-color: var(--button-hover);
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: clamp(1.2em, 5vw, 1.8em);
-                margin-right: 40px;
+            .header-content {
+                padding: 0.75rem 1rem;
             }
-            
+
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            .nav-list {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0.25rem;
+            }
+
             .chatbot-container {
-                margin: 20px;
+                margin: 1rem;
+                padding: 1rem;
             }
         }
 
-        /* Add support for reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+            * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -126,26 +217,49 @@
 </head>
 <body>
     <header>
-        <h1>AI Chatbot Mobile Site</h1>
-        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-7h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5zm-17 0h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5z"/>
-            </svg>
-        </button>
+        <div class="header-content">
+            <div class="header-top">
+                <h1>AI Chatbot</h1>
+                <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-7h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5zm-17 0h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5z"/>
+                    </svg>
+                </button>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <div class="chatbot-container">
         <p>Welcome to our AI Chatbot! Click on the chat button to get started.</p>
-        <button onclick="startChat()">Start Chat</button>
+        <button onclick="startChat()" class="chat-button">Start Chat</button>
     </div>
 
-    <!-- Defer non-critical scripts -->
     <script defer src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
     
-    <!-- Inline performance-critical JavaScript -->
     <script>
-        // Use performance-optimized code with error handling
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Mendable only after the DOM is ready
             try {
                 Mendable.initialize({
                     anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
@@ -155,18 +269,15 @@
                 console.error('Failed to initialize Mendable:', error);
             }
 
-            // Cache DOM elements
             const themeToggle = document.querySelector('.theme-toggle');
             const root = document.documentElement;
             const iconPath = document.querySelector('.theme-icon path');
 
-            // Theme icons paths
             const ICONS = {
                 light: 'M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-7h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5zm-17 0h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5z',
                 dark: 'M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z'
             };
 
-            // Use requestAnimationFrame for smooth theme transitions
             function updateTheme(theme) {
                 requestAnimationFrame(() => {
                     root.setAttribute('data-theme', theme);
@@ -175,23 +286,19 @@
                 });
             }
 
-            // Initialize theme with error handling
             try {
                 const savedTheme = localStorage.getItem('theme');
                 if (savedTheme) {
                     updateTheme(savedTheme);
                 } else {
-                    // Check system preference
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                     updateTheme(prefersDark ? 'dark' : 'light');
                 }
             } catch (error) {
                 console.error('Failed to initialize theme:', error);
-                // Fallback to light theme
                 updateTheme('light');
             }
 
-            // Debounced theme toggle handler
             let isThemeChanging = false;
             themeToggle.addEventListener('click', () => {
                 if (isThemeChanging) return;
@@ -202,28 +309,34 @@
                 
                 updateTheme(newTheme);
 
-                // Reset debounce after transition
                 setTimeout(() => {
                     isThemeChanging = false;
-                }, 300);
+                }, 200);
             });
 
-            // Listen for system theme changes
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
                 if (!localStorage.getItem('theme')) {
                     updateTheme(e.matches ? 'dark' : 'light');
                 }
             });
+
+            // Handle navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
         });
 
-        // Optimized chat initialization
         function startChat() {
             const chatButton = document.querySelector('.mendable-floating-button');
             if (chatButton) {
                 chatButton.click();
             } else {
                 console.warn('Chat button not found. Retrying...');
-                // Retry after a short delay
                 setTimeout(() => {
                     const retryButton = document.querySelector('.mendable-floating-button');
                     if (retryButton) {
