@@ -66,6 +66,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            padding-bottom: 0.5rem;
         }
 
         .header-content {
@@ -73,14 +74,15 @@
             margin: 0 auto;
             padding: 1rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
         }
 
         h1 {
             font-size: 1.5rem;
             font-weight: 600;
             margin: 0;
+            text-align: center;
         }
 
         .theme-toggle {
@@ -94,6 +96,9 @@
             align-items: center;
             justify-content: center;
             transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
         }
 
         .theme-toggle:hover {
@@ -109,14 +114,16 @@
 
         nav {
             background-color: var(--header-bg);
-            border-top: 1px solid var(--border-color);
+            width: 100%;
+            margin-top: 0.5rem;
         }
 
         .nav-list {
             list-style: none;
             margin: 0;
-            padding: 0 1rem;
+            padding: 0;
             display: flex;
+            justify-content: center;
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -127,7 +134,7 @@
         }
 
         .nav-item {
-            margin-right: 1rem;
+            margin: 0 1rem;
         }
 
         .nav-link {
@@ -195,7 +202,7 @@
             }
 
             .nav-item {
-                margin-right: 0.5rem;
+                margin: 0 0.5rem;
             }
 
             .nav-link {
@@ -205,6 +212,11 @@
             .chatbot-container {
                 margin: 1rem;
                 padding: 1rem;
+            }
+
+            .theme-toggle {
+                top: 0.75rem;
+                right: 0.75rem;
             }
         }
 
@@ -222,6 +234,22 @@
     <header>
         <div class="header-content">
             <h1>Copilot</h1>
+            <nav>
+                <ul class="nav-list" role="navigation">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#features" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#support" class="nav-link">Support</a>
+                    </li>
+                </ul>
+            </nav>
             <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
                 <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <!-- Icon path will be set dynamically -->
@@ -229,22 +257,6 @@
                 </svg>
             </button>
         </div>
-        <nav>
-            <ul class="nav-list" role="navigation">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#features" class="nav-link">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pricing" class="nav-link">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#support" class="nav-link">Support</a>
-                </li>
-            </ul>
-        </nav>
     </header>
 
     <main>
