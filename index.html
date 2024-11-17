@@ -3,299 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copilot</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI Chatbot Mobile Site</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
         }
         header {
-            background: #000;
-            color: #fff;
-            padding: 20px;
-            text-align: left;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            margin: 0;
-            font-size: 3em;
-            line-height: 1.2;
-        }
-        header p {
-            margin-top: 10px;
-            font-size: 1.4em;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        nav {
-            padding: 15px;
-            text-align: center;
-            background-color: #f0f0f0;
-            border-bottom: 2px solid #e0e0e0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        nav a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #007BFF;
-        }
-        .content {
-            padding: 100px 20px 40px 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        .content section {
-            background: #fff;
-            padding: 30px;
-            border-left: 5px solid #007BFF;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        .content section:hover {
-            transform: translateY(-5px);
-        }
-        .content section h2 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #333;
-            line-height: 1.2;
-        }
-        .content section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        .highlight {
-            display: inline-block;
-            background-color: #ffef96;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-        .sidebar {
-            position: fixed;
-            right: 20px;
-            top: 100px;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            padding: 20px;
-            width: 200px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .sidebar h3 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        .sidebar ul li a {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .sidebar ul li a:hover {
-            text-decoration: underline;
-        }
-        .newsletter {
-            text-align: center;
-            padding: 30px;
-            background: #007BFF;
-            color: #fff;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .newsletter h2 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        .newsletter input[type="email"] {
-            padding: 10px;
-            width: 70%;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .newsletter button {
-            padding: 10px 20px;
-            background: #0056b3;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .newsletter button:hover {
-            background: #003d82;
-        }
-        footer {
-            background: #000;
+            background-color: #007bff;
             color: #fff;
             padding: 15px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
         }
-        .dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        nav.dark-mode {
-            background-color: #333;
-        }
-        nav a.dark-mode {
-            color: #ffd700;
-        }
-        header.dark-mode, footer.dark-mode {
-            background: #1e1e1e;
-        }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s;
-        }
-        .dark-mode-toggle:hover {
-            background-color: #0056b3;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            nav {
-                padding: 10px;
-            }
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-            .content {
-                padding: 120px 20px;
-            }
-            .sidebar {
-                display: none;
-            }
+        .chatbot-container {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Hey Snackers,</h1>
-        <p>Time to cry over unspelled milk: a <span class="highlight">Costco</span> wholesaler is recalling nearly 80K pounds of butter after it failed to mention on the label that the dairy delight contained milk.</p>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        <h1>AI Chatbot Mobile Site</h1>
     </header>
-    <nav>
-        <a href="#latest-news">Latest News</a>
-        <a href="#projects">Projects</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
-    <div class="content">
-        <div class="newsletter">
-            <h2>Subscribe to our Newsletter</h2>
-            <p>Get the latest AI updates delivered straight to your inbox.</p>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
-        </div>
-        <section id="latest-news">
-            <h2>Apple's preparing an AI-powered smart-home tablet as it searches for a hardware hit</h2>
-            <p><span class="highlight">Apple</span> is preparing to launch a wall-mounted smart-home tablet as early as March. The device can control AC, lighting, host video calls, and play music. <span class="highlight">Apple's</span> hoping its AI-powered features can help it make a splash in the smart-home market.</p>
-        </section>
-        <section id="projects">
-            <h2>Ongoing Projects</h2>
-            <p>Explore our ongoing AI research projects. Learn about cutting-edge technologies, machine learning models, and their real-world applications.</p>
-        </section>
-        <section id="resources">
-            <h2>Resources</h2>
-            <p>Access a variety of AI learning resources, including tutorials, papers, and tools to further your understanding of artificial intelligence.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or would like to collaborate, feel free to reach out to us at <a href="mailto:contact@airesearchhub.com">contact@airesearchhub.com</a>.</p>
-        </section>
-        <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-    type: "floatingButton",
-    // all the other props for the component type
-});
-</script>
+    <div class="chatbot-container">
+        <p>Welcome to our AI Chatbot! Click on the chat button to get started.</p>
     </div>
-    <div class="sidebar">
-        <h3>Quick Links</h3>
-        <ul>
-            <li><a href="#latest-news">Latest News</a></li>
-            <li><a href="#projects">Ongoing Projects</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </div>
-    <footer>
-        <p>&copy; 2024 Copilot. All rights reserved.</p>
-    </footer>
+    
+    <!-- Mendable Widget -->
+    <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('nav').classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-            document.querySelector('footer').classList.toggle('dark-mode');
-            document.querySelectorAll('nav a').forEach(a => a.classList.toggle('dark-mode'));
-            document.querySelectorAll('.content section').forEach(section => section.classList.toggle('dark-mode'));
-        }
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "floatingButton",
+            // all the other props for the component type
+        });
     </script>
 </body>
 </html>
