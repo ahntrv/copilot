@@ -5,75 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AI Chatbot Mobile Site</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js" as="script">
+    
+    <!-- Prevent FOUT (Flash of Unstyled Text) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Inline critical CSS for faster initial render -->
     <style>
+        /* Define CSS variables once in root */
+        :root {
+            --background-color: #e0f7fa;
+            --text-color: #333;
+            --container-bg: #ffffff;
+            --header-shadow: rgba(0, 0, 0, 0.1);
+            --container-shadow: rgba(0, 0, 0, 0.1);
+            --transition-duration: 0.3s;
+        }
+
+        /* Separate dark mode variables */
+        [data-theme="dark"] {
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --container-bg: #2d2d2d;
+            --header-shadow: rgba(0, 0, 0, 0.3);
+            --container-shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Use GPU-accelerated properties for animations */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0f7fa;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-duration) ease;
+            -webkit-font-smoothing: antialiased;
         }
+
         header {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #fff;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px var(--header-shadow);
+            position: relative;
+            z-index: 1;
+            will-change: transform;
         }
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        .chatbot-container {
-            padding: 40px;
-            max-width: 600px;
-            margin: 40px auto;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .chatbot-container p {
-            font-size: 1.2em;
-            color: #555;
-        }
-        .chatbot-container button {
-            background-color: #007bff;
-            color: #fff;
+
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
             border: none;
-            padding: 15px 30px;
-            font-size: 1em;
-            border-radius: 8px;
+            color: white;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
-        .chatbot-container button:hover {
-            background-color: #0056b3;
+
+        .theme-toggle:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            will-change: transform;
+            transition: transform var(--transition-duration) ease;
+        }
+
+        .theme-toggle:active svg {
+            transform: scale(0.95);
+        }
+
+        .chatbot-container {
+            padding: clamp(20px, 5vw, 40px);
+            max-width: 600px;
+            margin: clamp(20px, 5vw, 40px) auto;
+            background-color: var(--container-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px var(--container-shadow);
+            transform: translateZ(0);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: clamp(1.2em, 5vw, 1.8em);
+                margin-right: 40px;
+            }
+            
+            .chatbot-container {
+                margin: 20px;
+            }
+        }
+
+        /* Add support for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>AI Chatbot Mobile Site</h1>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-7h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5zm-17 0h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5z"/>
+            </svg>
+        </button>
     </header>
     <div class="chatbot-container">
         <p>Welcome to our AI Chatbot! Click on the chat button to get started.</p>
         <button onclick="startChat()">Start Chat</button>
     </div>
+
+    <!-- Defer non-critical scripts -->
+    <script defer src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
     
-    <!-- Mendable Widget -->
-    <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
+    <!-- Inline performance-critical JavaScript -->
     <script>
-        Mendable.initialize({
-            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
-            type: "floatingButton",
-            // all the other props for the component type
+        // Use performance-optimized code with error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Mendable only after the DOM is ready
+            try {
+                Mendable.initialize({
+                    anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+                    type: "floatingButton",
+                });
+            } catch (error) {
+                console.error('Failed to initialize Mendable:', error);
+            }
+
+            // Cache DOM elements
+            const themeToggle = document.querySelector('.theme-toggle');
+            const root = document.documentElement;
+            const iconPath = document.querySelector('.theme-icon path');
+
+            // Theme icons paths
+            const ICONS = {
+                light: 'M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3c0 .28.22.5.5.5zm0 14c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5s.5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zm8.5-7h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5zm-17 0h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5z',
+                dark: 'M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z'
+            };
+
+            // Use requestAnimationFrame for smooth theme transitions
+            function updateTheme(theme) {
+                requestAnimationFrame(() => {
+                    root.setAttribute('data-theme', theme);
+                    iconPath.setAttribute('d', ICONS[theme === 'dark' ? 'light' : 'dark']);
+                    localStorage.setItem('theme', theme);
+                });
+            }
+
+            // Initialize theme with error handling
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    updateTheme(savedTheme);
+                } else {
+                    // Check system preference
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    updateTheme(prefersDark ? 'dark' : 'light');
+                }
+            } catch (error) {
+                console.error('Failed to initialize theme:', error);
+                // Fallback to light theme
+                updateTheme('light');
+            }
+
+            // Debounced theme toggle handler
+            let isThemeChanging = false;
+            themeToggle.addEventListener('click', () => {
+                if (isThemeChanging) return;
+                isThemeChanging = true;
+
+                const currentTheme = root.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                updateTheme(newTheme);
+
+                // Reset debounce after transition
+                setTimeout(() => {
+                    isThemeChanging = false;
+                }, 300);
+            });
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (!localStorage.getItem('theme')) {
+                    updateTheme(e.matches ? 'dark' : 'light');
+                }
+            });
         });
 
+        // Optimized chat initialization
         function startChat() {
-            // Simulate clicking the floating Mendable button
-            document.querySelector('.mendable-floating-button').click();
+            const chatButton = document.querySelector('.mendable-floating-button');
+            if (chatButton) {
+                chatButton.click();
+            } else {
+                console.warn('Chat button not found. Retrying...');
+                // Retry after a short delay
+                setTimeout(() => {
+                    const retryButton = document.querySelector('.mendable-floating-button');
+                    if (retryButton) {
+                        retryButton.click();
+                    } else {
+                        console.error('Chat button not found after retry');
+                    }
+                }, 1000);
+            }
         }
     </script>
 </body>
