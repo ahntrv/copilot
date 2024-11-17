@@ -61,21 +61,25 @@
         }
 
         header {
-            background-color: var(--header-bg);
-            box-shadow: 0 1px 3px var(--shadow-color);
             position: sticky;
             top: 0;
             z-index: 10;
-            padding-bottom: 0.5rem;
+            background-color: transparent;
+            margin-bottom: 2rem;
         }
 
         .header-content {
-            max-width: 1200px;
+            position: relative;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 2rem;
+            background-color: var(--container-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px var(--shadow-color);
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
         h1 {
@@ -113,18 +117,17 @@
         }
 
         nav {
-            background-color: var(--header-bg);
             width: 100%;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
 
         .nav-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             overflow-x: auto;
+            padding: 0;
+            margin: 0;
+            list-style: none;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -249,7 +252,14 @@
     </main>
 
     <!-- Mendable script -->
-    <script defer src="https://unpkg.com/@mendable/search@latest/dist/umd/mendable-bundle.min.js"></script>
+    <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
+    <script>
+    Mendable.initialize({
+        anon_key: 'YOUR_ANON_KEY_HERE',
+        type: "floatingButton",
+        // all the other props for the component type
+    });
+    </script>
     
     <!-- Main JavaScript -->
     <script>
@@ -260,7 +270,7 @@
 
             const ICONS = {
                 light: 'M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26A5.5 5.5 0 0 1 11 7.5c0-1.82.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z', // Moon
-                dark: 'M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8L6.76 4.84zm10.73 0l1.8-1.79-1.41-1.41-1.79 1.8 1.4 1.4zM12 5a7 7 0 0 1 0 14 7 7 0 0 1 0-14zm0-2a9 9 0 0 0 0 18 9 9 0 0 0 0-18z' // Sun
+                dark: 'M6.76 4.84l-1.8-1.79-1.41-1.41 1.79 1.8L6.76 4.84zm10.48 0l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14z' // Sun
             };
 
             function updateTheme(theme) {
