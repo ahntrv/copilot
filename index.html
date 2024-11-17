@@ -89,6 +89,72 @@
             font-weight: bold;
             margin-right: 5px;
         }
+        .sidebar {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .sidebar h3 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+        .newsletter {
+            text-align: center;
+            padding: 30px;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .newsletter h2 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .newsletter button {
+            padding: 10px 20px;
+            background: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .newsletter button:hover {
+            background: #003d82;
+        }
         footer {
             background: #000;
             color: #fff;
@@ -154,6 +220,9 @@
             .content {
                 padding: 20px;
             }
+            .sidebar {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -170,6 +239,12 @@
         <a href="#contact">Contact Us</a>
     </nav>
     <div class="content">
+        <div class="newsletter">
+            <h2>Subscribe to our Newsletter</h2>
+            <p>Get the latest AI updates delivered straight to your inbox.</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
         <section id="latest-news">
             <h2>Apple's preparing an AI-powered smart-home tablet as it searches for a hardware hit</h2>
             <p><span class="highlight">Apple</span> is preparing to launch a wall-mounted smart-home tablet as early as March. The device can control AC, lighting, host video calls, and play music. <span class="highlight">Apple's</span> hoping its AI-powered features can help it make a splash in the smart-home market.</p>
@@ -194,6 +269,15 @@ Mendable.initialize({
     // all the other props for the component type
 });
 </script>
+    </div>
+    <div class="sidebar">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="#latest-news">Latest News</a></li>
+            <li><a href="#projects">Ongoing Projects</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
     </div>
     <footer>
         <p>&copy; 2024 Copilot. All rights reserved.</p>
