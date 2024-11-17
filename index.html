@@ -26,12 +26,14 @@
             font-family: 'Merriweather', serif;
             font-weight: 700;
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            line-height: 1.2;
         }
         header p {
-            margin-top: 5px;
-            font-size: 1.2em;
+            margin-top: 10px;
+            font-size: 1.4em;
             font-weight: 400;
+            line-height: 1.5;
         }
         nav {
             padding: 15px;
@@ -50,15 +52,15 @@
             color: #007BFF;
         }
         .content {
-            padding: 30px 15px;
+            padding: 40px 20px;
             max-width: 800px;
             margin: auto;
         }
         .content section {
             background: #fff;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 30px;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
             margin-bottom: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
@@ -69,19 +71,23 @@
         .content section h2 {
             font-family: 'Merriweather', serif;
             font-weight: 700;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #007BFF;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+            line-height: 1.2;
         }
         .content section p {
-            font-size: 1em;
-            line-height: 1.6;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
         .highlight {
+            display: inline-block;
             background-color: #ffef96;
-            padding: 2px 5px;
+            padding: 5px 10px;
             border-radius: 3px;
             font-weight: bold;
+            margin-right: 5px;
         }
         footer {
             background: #000;
@@ -154,7 +160,7 @@
 <body>
     <header>
         <h1>Hey Snackers,</h1>
-        <p>Time to stay updated with the latest in AI research and tech news.</p>
+        <p>Time to cry over unspelled milk: a <span class="highlight">Costco</span> wholesaler is recalling nearly 80K pounds of butter after it failed to mention on the label that the dairy delight contained milk.</p>
         <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
     </header>
     <nav>
@@ -165,7 +171,7 @@
     </nav>
     <div class="content">
         <section id="latest-news">
-            <h2>Apple's preparing an AI-powered smart-home tablet</h2>
+            <h2>Apple's preparing an AI-powered smart-home tablet as it searches for a hardware hit</h2>
             <p><span class="highlight">Apple</span> is preparing to launch a wall-mounted smart-home tablet as early as March. The device can control AC, lighting, host video calls, and play music. <span class="highlight">Apple's</span> hoping its AI-powered features can help it make a splash in the smart-home market.</p>
         </section>
         <section id="projects">
