@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot Mobile Site</title>
+    <title>Copilot</title>
     
     <!-- Preconnect to improve font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Load Monospace Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Main CSS -->
     <style>
@@ -52,7 +52,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             margin: 0;
             background-color: var(--background-color);
             color: var(--text-color);
@@ -221,7 +221,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>AI Chatbot</h1>
+            <h1>Copilot</h1>
             <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
                 <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <!-- Icon path will be set dynamically -->
@@ -238,12 +238,6 @@
                     <a href="#features" class="nav-link">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#documentation" class="nav-link">Documentation</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#examples" class="nav-link">Examples</a>
-                </li>
-                <li class="nav-item">
                     <a href="#pricing" class="nav-link">Pricing</a>
                 </li>
                 <li class="nav-item">
@@ -255,7 +249,7 @@
 
     <main>
         <div class="chatbot-container" id="home">
-            <p>Welcome to our AI Chatbot! Click on the chat button to get started.</p>
+            <p>Welcome to Copilot! Click on the chat button to get started.</p>
             <button onclick="startChat()" class="chat-button">Start Chat</button>
         </div>
     </main>
