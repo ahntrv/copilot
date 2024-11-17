@@ -254,11 +254,10 @@
     <!-- Mendable script -->
     <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
     <script>
-    Mendable.initialize({
-        anon_key: 'YOUR_ANON_KEY_HERE',
-        type: "floatingButton",
-        // all the other props for the component type
-    });
+        Mendable.initialize({
+            anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+            type: "floatingButton",
+        });
     </script>
     
     <!-- Main JavaScript -->
@@ -269,13 +268,13 @@
             const iconPath = document.querySelector('.theme-icon path');
 
             const ICONS = {
-                light: 'M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26A5.5 5.5 0 0 1 11 7.5c0-1.82.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z', // Moon
-                dark: 'M6.76 4.84l-1.8-1.79-1.41-1.41 1.79 1.8L6.76 4.84zm10.48 0l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14z' // Sun
+                light: 'M6.76 4.84l-1.8-1.79-1.41-1.41 1.79 1.8L6.76 4.84zm10.48 0l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14z', // Sun
+                dark: 'M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26A5.5 5.5 0 0 1 11 7.5c0-1.82.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z' // Moon
             };
 
             function updateTheme(theme) {
                 root.setAttribute('data-theme', theme);
-                iconPath.setAttribute('d', theme === 'dark' ? ICONS.light : ICONS.dark);
+                iconPath.setAttribute('d', theme === 'dark' ? ICONS.dark : ICONS.light);
                 localStorage.setItem('theme', theme);
             }
 
