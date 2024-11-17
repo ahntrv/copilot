@@ -65,10 +65,14 @@
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
         }
         .content section:hover {
             transform: translateY(-10px);
+        }
+        .content section.dark-mode {
+            background: rgba(40, 40, 40, 0.9);
+            color: #E0E0E0;
         }
         .content section h2 {
             font-family: 'Orbitron', sans-serif;
@@ -178,10 +182,14 @@
             <h2>Contact Us</h2>
             <p>If you have any questions or would like to collaborate, feel free to reach out to us at <a href="mailto:contact@airesearchhub.com">contact@airesearchhub.com</a>.</p>
         </section>
-        <section id="zapier-widget">
-            <h2>Automate with Zapier</h2>
-            <iframe src="https://interfaces.zapier.com/embed/page/clpg320i40004jo0oej3p33ph?noBackground=true&allowQueryParams=true" style='max-width: 900px; width: 100%; height: 500px;'></iframe>
-        </section>
+        <script src="https://unpkg.com/@mendable/search@0.0.205/dist/umd/mendable-bundle.min.js"></script>
+<script>
+Mendable.initialize({
+    anon_key: 'e5626e3e-7809-4aba-8a67-104b4446dec1',
+    type: "floatingButton",
+    // all the other props for the component type
+});
+</script>
     </div>
     <footer>
         <p>&copy; 2024 Copilot. All rights reserved.</p>
@@ -193,6 +201,7 @@
             document.querySelector('header').classList.toggle('dark-mode');
             document.querySelector('footer').classList.toggle('dark-mode');
             document.querySelectorAll('nav a').forEach(a => a.classList.toggle('dark-mode'));
+            document.querySelectorAll('.content section').forEach(section => section.classList.toggle('dark-mode'));
         }
     </script>
 </body>
